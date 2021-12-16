@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cached requests</title>
+</head>
+<body>
+<h2>Cached requests</h2>
+<form onsubmit="createRequest(true)">
+    <input type="submit" value="Get cached resource">
+</form>
+<form onsubmit="createRequest(false)">
+    <input type="submit" value="Get non cached resource">
+</form>
+<script>
+    async function createRequest(shouldCache) {
+        if (shouldCache) {
+            await fetch('/cached');
+        } else {
+            await fetch('/not-cached');
+        }
+    }
+</script>
+</body>
+</html>
